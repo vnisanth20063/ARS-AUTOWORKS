@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { background: #07080a; scroll-behavior: auto; overflow-x: clip; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { @apply bg-ink text-white font-body antialiased; overflow-x: clip; -webkit-tap-highlight-color: transparent; }
+h1, h2, h3, h4 { @apply font-display; }
+:focus-visible { outline: 2px solid #e11d2e; outline-offset: 3px; }
+::selection { background: #e11d2e; color: #fff; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none; min-height: 44px; }
+  .btn-primary { @apply btn bg-ember text-white hover:bg-white hover:text-ink; }
+  .btn-ghost { @apply btn border border-white/25 text-white hover:border-ember hover:text-ember; }
+  .btn-quiet { @apply btn px-3 text-mist hover:text-white; }
+  .headline { @apply font-display font-bold uppercase leading-[0.95] tracking-tight break-words; }
+  .section { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .field { @apply w-full rounded-lg border border-line bg-charcoal px-4 py-3 text-base sm:text-sm text-white placeholder:text-mist/70 focus:border-ember focus:outline-none; min-height: 46px; }
+  .label { @apply mb-1.5 block text-sm font-medium text-white; }
+  .err { @apply mt-1 text-xs text-ember; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.28em] text-ember; }
+  .serif-accent { @apply font-serif italic font-medium normal-case tracking-normal text-gold; }
+  .chip { @apply rounded-full border px-4 py-2 text-sm min-h-[44px] border-line text-white/80 hover:border-white/50 transition-colors; }
+  .chip-on { @apply border-ember bg-ember text-white hover:border-ember; }
+  .card { @apply rounded-2xl border border-line bg-charcoal; }
+  .demo-note { @apply rounded-lg border border-gold/40 bg-gold/5 px-3 py-2 text-xs text-gold; }
+}
+
+.cursor-ring { position: fixed; left: 0; top: 0; z-index: 150; pointer-events: none; width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1.5px solid rgba(225,29,46,.85); border-radius: 999px; transition: width .2s, height .2s, margin .2s, background .2s; mix-blend-mode: difference; }
+.cursor-ring.big { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(225,29,46,.18); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+@keyframes heroFill { from { width: 0%; } to { width: 100%; } }
